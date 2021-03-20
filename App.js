@@ -15,14 +15,11 @@ import Store from './src/stores/Store';
 
 const App: () => React$Node = () => {
   return (
-    <>
-      <StatusBar barStyle="dark-content" />
-      <Provider {...Store}>
-        <NavigationContainer>
-          <Routes />
-        </NavigationContainer>
-      </Provider>
-    </>
+    <Provider {...Store}>
+      <NavigationContainer>
+        <Routes />
+      </NavigationContainer>
+    </Provider>
   );
 };
 
