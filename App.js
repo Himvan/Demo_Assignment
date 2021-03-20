@@ -8,13 +8,20 @@
 
 import React from 'react';
 import {StatusBar} from 'react-native';
-import Loader from 'Demo/src/components/Loader';
+import {NavigationContainer} from '@react-navigation/native';
+import Routes from './src/navigation/Routes';
+import {Provider} from 'mobx-react';
+import Store from './src/stores/Store';
 
 const App: () => React$Node = () => {
   return (
     <>
       <StatusBar barStyle="dark-content" />
-      <Loader loading={true} />
+      <Provider {...Store}>
+        <NavigationContainer>
+          <Routes />
+        </NavigationContainer>
+      </Provider>
     </>
   );
 };
