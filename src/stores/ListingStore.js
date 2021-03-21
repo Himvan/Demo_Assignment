@@ -9,11 +9,13 @@ export default class ListingStore {
   @observable currentLocality = '';
 
   async checkGeoLocation(current, info) {
-    await Geocoder.geocodePosition(current).then((res) => {
-      console.log(res)
-      this.currentLocality = res?.[0]?.locality;
-    });
-    await this.getWeatherData(info);
+    await Geocoder.geocodePosition(current)
+      .then((res) => {
+        this.currentLocality = res?.[0]?.locality;
+      })
+      .catch((err) => console.log(err));
+    const res = await this.getWeatherData(info);
+    return res;
   }
 
   async getWeatherData(geoData) {
