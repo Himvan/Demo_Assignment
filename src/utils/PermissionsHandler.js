@@ -13,7 +13,7 @@ export const TypeNum = {
   LOCATION:
     Platform.OS == 'android'
       ? PERMISSIONS.ANDROID.ACCESS_FINE_LOCATION
-      : PERMISSIONS.IOS.LOCATION_ALWAYS,
+      : PERMISSIONS.IOS.LOCATION_WHEN_IN_USE,
 };
 
 export const checkRequest = async (type, ...options) => {
