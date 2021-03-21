@@ -42,6 +42,7 @@ const Splash = (props) => {
           {enableHighAccuracy: true, timeout: 15000},
         );
       } else {
+        props.ListingStore.listingData = [];
         props.navigation.reset({
           index: 0,
           routes: [{name: 'listing'}],
